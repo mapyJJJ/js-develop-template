@@ -1,6 +1,13 @@
 ### js开发模版
 ---
 
+- first step:   
+    ```
+    npm install --save-dev
+    ```
+
+
+
 - #### 使用 nodejs 进行脚本开发
     - 脚本入口: `src/index.ts`
     - tsc build target: `tsc-dist/index.js`
@@ -17,3 +24,4 @@
         - `npm run webpack-d` # build开发模式
         - `npm run webpack-p` # build生产模式
         - `npm run webpack-watch` # build watch
+        - `npm run webpack-dev` # run react app
