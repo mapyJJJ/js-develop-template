@@ -1,3 +1,6 @@
+const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     mode: "production",
     entry: __dirname + "/web-src/index.tsx",
@@ -12,7 +15,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'awesome-typescript-loader',
+                use: 'ts-loader',
                 exclude: /node_modules/,
             },
         ],
@@ -21,4 +24,18 @@ module.exports = {
         "react": "React",
         "react-dom": "ReactDOM"
     },
+
+    devServer:{
+        compress: true,
+        port: 3001,
+        hot: true,
+        static: {
+            directory: path.join(__dirname, 'web-public'),
+        },
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+          template: './web-public/index.html',
+        }),
+    ],
 }
