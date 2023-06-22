@@ -5,7 +5,7 @@ module.exports = {
     mode: "production",
     entry: __dirname + "/web-src/index.tsx",
     output: {
-        path: __dirname + "/web-public/js",
+        path: __dirname + "/web-public",
         filename: "bundle.js"
     },
     resolve: {
@@ -18,6 +18,11 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader','css-loader'],
+                exclude: /node_modules/
+            }
         ],
     },
     externals: {
